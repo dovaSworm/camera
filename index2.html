@@ -62,10 +62,10 @@
             bottom: 148px;
             height: 40px;
             width: 40px;
-            background-color: rgba(170, 155, 155, 0.2)
+            background-color: rgba(170, 155, 155, 0.336)
         }
     </style>
-    <title>My Favorite Sport</title>
+    <title>Camera</title>
 </head>
 
 <body>
@@ -120,6 +120,7 @@
                     });
 
                 video.addEventListener('canplay', function(ev) {
+
                     if (!streaming) {
                         height = video.videoHeight / (video.videoWidth / width);
 
