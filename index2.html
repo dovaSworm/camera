@@ -62,7 +62,7 @@
             bottom: 148px;
             height: 40px;
             width: 40px;
-            background-color: rgba(170, 155, 155, 0.336)
+            border: 2px solid rgba(163, 16, 16, 0.336);
         }
     </style>
     <title>Camera</title>
@@ -108,7 +108,10 @@
                 startbutton = document.getElementById('startbutton');
 
                 navigator.mediaDevices.getUserMedia({
-                        video: true,
+                        video: {
+                            autoplay: true,
+                            facingMode: 'environment'
+                        },
                         audio: false
                     })
                     .then(function(stream) {
