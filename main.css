@@ -63,14 +63,14 @@ body {
 .zoom {
     margin: auto;
     /* margin-left: 300px; */
-    /* margin-top: -300px;  */
+    /* margin-top: -300px; */
     position: relative;
     z-index: 4444444;
     /* top: auto; */
     left: 0;
     right: 0;
-    bottom: calc(50% + 20px);
-    height: 40px;
-    width: 40px;
+    bottom: calc(50% + 88px);
+    height: 168px;
+    width: 168px;
     border: 2px solid rgba(163, 16, 16, 0.336);
 }

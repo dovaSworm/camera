@@ -26,10 +26,8 @@
                     <div class="output">
                         <img id="photo" alt="The screen capture will appear in this box.">
                     </div>
-                    <div class="m-3">
-
-                        <a href="#" class="button btn-info p-2" id="btn-download" download="my-file-name.png">Download</a>
-                    </div>
+                    <div class="m-3"></div>
+                    <a href="#" class="button m-2" id="btn-download" download="my-file-name.png">Download</a>
                 </div>
             </div>
         </div>
@@ -59,8 +57,8 @@
         /* JS comes here */
         (function() {
 
-            var width = 400; // We will scale the photo width to this
-            var height = 400; // This will be computed based on the input stream
+            var width = window.innerWidth; // We will scale the photo width to this
+            var height = 0; // This will be computed based on the input stream
 
             var streaming = false;
 
@@ -93,6 +91,16 @@
                 video.addEventListener('canplay', function(ev) {
 
                     if (!streaming) {
+                        height = video.videoHeight / (video.videoWidth / width);
+
+                        if (isNaN(height)) {
+                            height = width / (4 / 3);
+                        }
+
+                        video.setAttribute('width', width);
+                        video.setAttribute('height', height);
+                        // canvas.setAttribute('width', width);
+                        // canvas.setAttribute('height', height);
                         streaming = true;
                     }
                 }, false);
@@ -118,9 +126,9 @@
             function takepicture() {
                 var context = canvas.getContext('2d');
                 if (width && height) {
-                    canvas.width = width;
-                    canvas.height = height;
-                    context.drawImage(video, 0, 0, width, height);
+                    canvas.width = 400;
+                    canvas.height = 400;
+                    context.drawImage(video, 140, 90, 400, 400, 50, 50, 400, 400);
 
                     var data = canvas.toDataURL('image/png');
                     photo.setAttribute('src', data);
