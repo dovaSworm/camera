@@ -4,94 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #container {
-            position: relative;
-            margin: auto;
-            width: 500px;
-            z-index: 4444;
-            height: 375px;
-            border: 10px #333 solid;
-        }
-        
-        .zoom {
-            margin: auto;
-            /* margin-left: 300px; */
-            /* margin-top: -300px;  */
-            position: absolute;
-            z-index: 4444444;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            height: 40px;
-            width: 40px;
-            background-color: rgba(123, 4, 4, .2)
-        }
-        
-        #videoElement {
-            position: relative;
-            z-index: 4;
-            width: 500px;
-            height: 375px;
-        }
-        
-        #myCanvas {
-            position: absolute;
-            width: 500px;
-            height: 375px;
-            margin: auto;
-            right: 0;
-            bottom: 0;
-            top: 0;
-            left: 0;
-            z-index: 2222222;
-        }
-    </style>
+    <title>Camer with input</title>
 </head>
 
 <body>
 
     <div id="container">
-
-        <video style="display:block; margin: 0 auto;" autoplay="true" id="videoElement">
-        
-        </video>
-        <button id="take-photo">Take photo</button>
-        <div class="zoom"></div>
-        <canvas style="display:block;" id="myCanvas"></canvas>
-        <img src="" alt="" id="photo-holder">
+        <input type="file" accept="image/*;capture=camera">
     </div>
-    <a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a>
-    <input type="file" accept="image/*;capture=camera">
-    <script src="main.js"></script>
-    <!-- <video id="player" controls autoplay></video>
-    <button id="capture">Capture</button>
-    <canvas id="canvas" width=320 height=240></canvas>
-    <a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a>
-    <script>
-        const player = document.getElementById('player');
-        const canvas = document.getElementById('canvas');
-        const context = canvas.getContext('2d');
-        const captureButton = document.getElementById('capture');
-
-        const constraints = {
-            video: true,
-        };
-
-        captureButton.addEventListener('click', () => {
-            // Draw the video frame to the canvas.
-            context.drawImage(player, 0, 0, canvas.width, canvas.height);
-        });
-
-        // Attach the video stream to the video element and autoplay.
-        navigator.mediaDevices.getUserMedia(constraints)
-            .then((stream) => {
-                player.srcObject = stream;
-            }); -->
-
-    </script>
+    <!-- <script src="main.js"></script> -->
 </body>
 
 </html>
