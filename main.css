@@ -1,0 +1,76 @@
+body {
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+#video {
+    /* border: 1px solid black; */
+    width: 98%;
+    height: 100%;
+}
+
+#photo {
+    /* border: 1px solid black; */
+    width: 40%;
+    height: 30%;
+}
+
+#canvas {
+    display: none;
+}
+
+.camera {
+    padding: 5px;
+    width: 100%;
+    height: 50vh;
+    display: block;
+}
+
+.output {
+    margin-top: 50px;
+    width: 100%;
+    display: inline-block;
+}
+
+#startbutton {
+    display: block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* bottom: 36px; */
+    padding: 5px;
+    background-color: #2e64b4;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 1.0);
+    cursor: pointer;
+}
+
+.contentarea {
+    font-size: 16px;
+    font-family: Arial;
+    text-align: center;
+    width: 100%;
+    /* padding: 5px; */
+}
+
+.zoom {
+    margin: auto;
+    /* margin-left: 300px; */
+    /* margin-top: -300px;  */
+    position: relative;
+    z-index: 4444444;
+    /* top: auto; */
+    left: 0;
+    right: 0;
+    bottom: calc(50% + 20px);
+    height: 40px;
+    width: 40px;
+    border: 2px solid rgba(163, 16, 16, 0.336);
+}
