@@ -61,6 +61,14 @@
 
                     navigator.mediaDevices.getUserMedia({
                             video: {
+                                width: {
+                                    min: 310,
+                                    max: 1310
+                                },
+                                height: {
+                                    min: 232,
+                                    max: 832
+                                },
                                 autoplay: true,
                                 facingMode: 'environment'
                             },
@@ -77,10 +85,10 @@
                     video.addEventListener('canplay', function(ev) {
 
                         if (!streaming) {
-                            // height = video.videoHeight / (video.videoWidth / width);
+                            height = video.videoHeight / (video.videoWidth / width);
 
                             if (isNaN(height)) {
-                                // height = width / (86 / 54);
+                                height = width / (86 / 54);
                             }
 
                             video.setAttribute('width', width);
