@@ -12,6 +12,8 @@ body {
 #video {
     /* border: 1px solid black; */
     /* width: 98%; */
+    width: 310px;
+    height: 232px;
     /* height: 100%; */
 }
 
