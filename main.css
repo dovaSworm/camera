@@ -17,7 +17,7 @@ body {
 
 #photo {
     /* border: 1px solid black; */
-    width: 40%;
+    width: 100%;
     /* height: 30%; */
 }
 
@@ -33,9 +33,20 @@ body {
 }
 
 .output {
+    padding: 20px;
     margin-top: 50px;
     width: 100%;
     display: inline-block;
+}
+
+#btn-download {
+    margin: auto;
+    padding: 5px;
+    background: #2e64b4;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    cursor: pointer;
 }
 
 #startbutton {
@@ -62,14 +73,11 @@ body {
 
 .zoom {
     margin: auto;
-    /* margin-left: 300px; */
-    /* margin-top: -300px; */
-    position: relative;
+    position: absolute;
     z-index: 4444444;
-    /* top: auto; */
+    top: 100px;
     left: 0;
     right: 0;
-    bottom: calc(50% + 11px);
     height: 54px;
     width: 86px;
     border: 2px solid rgba(163, 16, 16, 0.336);
