@@ -12,8 +12,8 @@ body {
 #video {
     /* border: 1px solid black; */
     /* width: 98%; */
-    width: 310px;
-    height: 232px;
+    width: 100%;
+    height: 100%;
     /* height: 100%; */
 }
 
@@ -30,7 +30,7 @@ body {
 .camera {
     padding: 5px;
     width: 100%;
-    /* height: 50vh; */
+    height: 100vh;
     display: block;
 }
 
@@ -80,7 +80,7 @@ body {
     top: 100px;
     left: 0;
     right: 0;
-    height: 54px;
-    width: 86px;
+    height: 172px;
+    width: 70vw;
     border: 2px solid rgba(163, 16, 16, 0.336);
 }
