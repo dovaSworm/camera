@@ -1,13 +1,13 @@
-var video = document.querySelector("#videoElement");
-var img = document.querySelector("#photo-holder");
-var canvas = document.getElementById("myCanvas");
-var takePhoto = document.getElementById("take-photo");
-var button = document.getElementById('btn-download');
+var video = document.querySelector("#video");
+// var img = document.querySelector("#photo-holder");
+// var canvas = document.getElementById("myCanvas");
+// var takePhoto = document.getElementById("take-photo");
+// var button = document.getElementById('btn-download');
 
-button.addEventListener('click', function(e) {
-    var dataURL = canvas.toDataURL('image/png');
-    button.href = dataURL;
-});
+// button.addEventListener('click', function(e) {
+//     var dataURL = canvas.toDataURL('image/png');
+//     button.href = dataURL;
+// });
 
 if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
