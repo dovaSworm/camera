@@ -77,10 +77,10 @@ body {
     margin: auto;
     position: absolute;
     z-index: 4444444;
-    top: 100px;
+    top: 20vh;
     left: 0;
     right: 0;
-    height: 172px;
+    height: 272px;
     width: 70vw;
     border: 2px solid rgba(163, 16, 16, 0.336);
 }
