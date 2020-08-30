@@ -10,7 +10,7 @@ var video = document.querySelector("#video");
 // });
 
 if (navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices.getUserMedia({ video: true, facingMode: 'environment' })
+    navigator.mediaDevices.getUserMedia({ video: { autoplay: true, facingMode: 'environment' } })
         .then(function(stream) {
             video.srcObject = stream;
         })
