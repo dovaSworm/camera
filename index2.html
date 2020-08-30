@@ -16,13 +16,13 @@
     <div class="container p-0">
         <div class="row no-gutters">
             <div class="col-sm-12">
-                <div class="contentarea">
-                    <div class="camera">
-                        <video id="video" autoplay="true">Video stream not available.</video>
-                    </div>
-                    <div class="zoom"></div>
-                    <div class="m-2"><button id="startbutton">Take photo</button></div>
+                <!-- <div class="contentarea"> -->
+                <div class="camera">
+                    <video id="video" autoplay="true">Video stream not available.</video>
                 </div>
+                <div class="zoom"></div>
+                <div class="m-2"><button id="startbutton">Take photo</button></div>
+                <!-- </div> -->
                 <canvas id="canvas"></canvas>
                 <div class="output">
                     <img id="photo" alt="The screen capture will appear in this box.">
@@ -61,14 +61,14 @@
 
                     navigator.mediaDevices.getUserMedia({
                             video: {
-                                width: {
-                                    min: 310,
-                                    max: 1310
-                                },
-                                height: {
-                                    min: 232,
-                                    max: 832
-                                },
+                                // width: {
+                                //     min: 310,
+                                //     max: 1310
+                                // },
+                                // height: {
+                                //     min: 232,
+                                //     max: 832
+                                // },
                                 autoplay: true,
                                 facingMode: 'environment'
                             },
@@ -91,9 +91,9 @@
                                 height = width / (86 / 54);
                             }
 
-                            video.setAttribute('width', width);
-                            video.setAttribute('height', height);
-                            canvas.setAttribute('width', width);
+                            video.setAttribute('width', window.innerWidth);
+                            video.setAttribute('height', window.innerHeight);
+                            canvas.setAttribute('width', window.innerWidth);
                             canvas.setAttribute('height', height);
                             streaming = true;
                         }
