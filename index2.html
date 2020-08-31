@@ -17,9 +17,9 @@
         <div class="row no-gutters">
             <div class="col-sm-12">
                 <!-- <div class="contentarea"> -->
-                <div class="camera">
-                    <video id="video" autoplay="true">Video stream not available.</video>
-                </div>
+                <!-- <div class="camera"> -->
+                <video id="video" autoplay="true">Video stream not available.</video>
+                <!-- </div> -->
                 <div class="zoom"></div>
                 <div class="m-2"><button id="startbutton">Take photo</button></div>
                 <!-- </div> -->
@@ -43,7 +43,7 @@
             /* JS comes here */
             (function() {
 
-                var width = window.innerWidth - 10; // We will scale the photo width to this
+                var width = 360; // We will scale the photo width to this
                 var height = 0; // This will be computed based on the input stream
 
                 var streaming = false;
@@ -55,20 +55,13 @@
 
                 function startup() {
                     video = document.getElementById('video');
+                    video.requestFullscreen();
                     canvas = document.getElementById('canvas');
                     photo = document.getElementById('photo');
                     startbutton = document.getElementById('startbutton');
 
                     navigator.mediaDevices.getUserMedia({
                             video: {
-                                // width: {
-                                //     min: 310,
-                                //     max: 1310
-                                // },
-                                // height: {
-                                //     min: 232,
-                                //     max: 832
-                                // },
                                 autoplay: true,
                                 facingMode: 'environment'
                             },
@@ -91,10 +84,10 @@
                                 height = width / (86 / 54);
                             }
 
-                            video.setAttribute('width', window.innerWidth);
-                            video.setAttribute('height', window.innerHeight);
-                            canvas.setAttribute('width', window.innerWidth);
-                            canvas.setAttribute('height', height);
+                            video.setAttribute('width', width);
+                            video.setAttribute('height', height);
+                            canvas.setAttribute('width', 340);
+                            canvas.setAttribute('height', 195);
                             streaming = true;
                         }
                     }, false);
@@ -106,7 +99,6 @@
 
                     clearphoto();
                 }
-
 
                 function clearphoto() {
                     var context = canvas.getContext('2d');
@@ -120,11 +112,9 @@
                 function takepicture() {
                     var context = canvas.getContext('2d');
                     if (width && height) {
-                        canvas.width = width;
-                        canvas.height = height;
-                        var sx = 133;
-                        var sy = 120;
-                        context.drawImage(video, 225, 180, width / (9 / 5), (height / (9 / 5)) - 10, 0, 0, width, height);
+                        canvas.width = 340;
+                        canvas.height = 195;
+                        context.drawImage(video, 75, 205, 340, 195, 0, 0, 340, 195);
 
                         var data = canvas.toDataURL('image/png');
                         photo.setAttribute('src', data);

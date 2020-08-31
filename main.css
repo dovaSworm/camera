@@ -13,7 +13,7 @@ body {
     /* border: 1px solid black; */
     /* width: 98%; */
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     /* height: 100%; */
 }
 
@@ -77,10 +77,11 @@ body {
     margin: auto;
     position: absolute;
     z-index: 4444444;
-    top: 20vh;
-    left: 0;
-    right: 0;
-    height: 272px;
-    width: 70vw;
+    top: 150px;
+    left: 50px;
+    /* right: 20px;
+    bottom: 50px; */
+    height: 150px;
+    width: 260px;
     border: 2px solid rgba(163, 16, 16, 0.336);
 }
