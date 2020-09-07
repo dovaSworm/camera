@@ -16,24 +16,17 @@
     <div class="container p-0">
         <div class="row no-gutters">
             <div class="col-sm-12">
-                <!-- <div class="contentarea"> -->
-                <!-- <div class="camera"> -->
                 <video id="video" autoplay="true">Video stream not available.</video>
-                <!-- </div> -->
                 <div class="zoom"></div>
                 <div class="m-2"><button id="startbutton">Take photo</button></div>
-                <!-- </div> -->
-                <canvas id="canvas"></canvas>
-                <div class="output">
-                    <img id="photo" alt="The screen capture will appear in this box.">
-                </div>
-                <div class="m-3 d-flex">
-                    <a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a>
-                </div>
             </div>
-
+            <canvas id="canvas"></canvas>
+            <div class="output">
+                <img id="photo" alt="The screen capture will appear in this box.">
+                <a href="#" class="button" id="btn-download" download="my-file-name.png">Download</a>
+            </div>
+            <div id="sirina"></div>
         </div>
-
         <script>
             var button = document.getElementById('btn-download');
             button.addEventListener('click', function(e) {
@@ -43,8 +36,8 @@
             /* JS comes here */
             (function() {
 
-                var width = 360; // We will scale the photo width to this
-                var height = 0; // This will be computed based on the input stream
+                var width;
+                var height;
 
                 var streaming = false;
 
@@ -54,6 +47,7 @@
                 var startbutton = null;
 
                 function startup() {
+
                     video = document.getElementById('video');
                     canvas = document.getElementById('canvas');
                     photo = document.getElementById('photo');
@@ -61,6 +55,8 @@
 
                     navigator.mediaDevices.getUserMedia({
                             video: {
+                                width: 1920,
+                                height: 1080,
                                 autoplay: true,
                                 facingMode: 'environment'
                             },
@@ -69,6 +65,8 @@
                         .then(function(stream) {
                             video.srcObject = stream;
                             video.play();
+                            console.log(video.videoWidth);
+                            console.log(video.videoHeight);
                         })
                         .catch(function(err) {
                             console.log("An error occurred: " + err);
@@ -85,8 +83,8 @@
 
                             video.setAttribute('width', width);
                             video.setAttribute('height', height);
-                            canvas.setAttribute('width', 340);
-                            canvas.setAttribute('height', 195);
+                            canvas.setAttribute('width', width);
+                            canvas.setAttribute('height', height);
                             streaming = true;
                         }
                     }, false);
@@ -109,17 +107,19 @@
                 }
 
                 function takepicture() {
+                    var output = document.getElementsByClassName('output')[0];
+                    output.style.display = "inline-block";
                     var context = canvas.getContext('2d');
-                    if (width && height) {
-                        canvas.width = 340;
-                        canvas.height = 195;
-                        context.drawImage(video, 75, 205, 340, 195, 0, 0, 340, 195);
+                    canvas.width = 910;
+                    canvas.height = 520;
+                    var x = video.videoWidth;
+                    var y = video.videoHeight
+                    context.drawImage(video, x * (8.4 / 100), y * (16 / 100), 910, 520, 0, 0, 910, 520);
+                    var sirina = document.getElementById('sirina');
+                    sirina.innerHTML = video.videoWidth + "X" + video.videoHeight;
+                    var data = canvas.toDataURL('image/png');
 
-                        var data = canvas.toDataURL('image/png');
-                        photo.setAttribute('src', data);
-                    } else {
-                        clearphoto();
-                    }
+                    photo.setAttribute('src', data);
                 }
 
                 window.addEventListener('load', startup, false);
